@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <title>Calculator!</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="favicon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                padding: 20px 0;
+                margin: 0;
+                text-align: center;
+                background-color: #ebf5f3;
+            }
+
+            span {
+                border-bottom: 2px solid #33473d;
+                padding: 15px;
+            }
+
+            button {
+                margin: 20px 0;
+                padding: 10px 10px;
+                background: #a7f2e1;
+                color: #195244;
+                border: 2px solid #195244;
+                font-weight: bold;
+                cursor: pointer;        
+                border-radius: 20px;
+                height: 50px;
+                width: 50px;
+            }
+
+            input[type=number] {    
+                padding: 10px 10px;
+                margin-top: 190px;
+                width: 120px;
+                height: 35px;  
+                border-radius: 20px;  
+                background-color: #d5e8e4;  
+                border-color: #2b574d;    
+                font-size: 24px;
+                color: #195244; 
+                font-weight: bold;     
+            }
+
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+            }
+
+            .number-input {
+                font-size: 25px;
+                color: #33473d;
+            } 
+
+            .equal-sign {
+                font-size: 25px;
+                color: #33473d;
+            }  
+
+            .equal-sign:hover {
+                transform: scale(1.02);
+            }
+
+            .equal-sign:active {
+                transform: scale(0.98);
+            }
+
+            .sign-button {
+                cursor: default;
+            }
+
+            .unselectable {
+                user-select: none;                
+                -webkit-user-drag: none;                
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+            }            
+        </style>
+    </head>
+    <body>
+        <div class="unselectable">          
+            <p class="number-input">
+                    <input type="number" id="num1-el" placeholder="">
+                    <button class="equal-sign sign-button" id="signs" type="button" ></button>
+                    <input type="number" id="num2-el" placeholder=""> = <span id="sum-el"></span>
+            </p>
+            <br>
+            <button class="equal-sign" onclick="add()">+</button>
+            <button class="equal-sign" onclick="subtract()">-</button>
+            <button class="equal-sign" onclick="multiply()">×</button>  
+            <button class="equal-sign" onclick="divide()">÷</button>
+        </div>         
+
+        <script>
+            function add() {
+                let num1 = document.getElementById("num1-el").valueAsNumber;
+                let num2 = document.getElementById("num2-el").valueAsNumber;
+                document.getElementById("sum-el").innerHTML = num1 + num2;
+                document.getElementById("signs").innerHTML = "+";
+            };
+
+            function subtract() {
+                let num1 = document.getElementById("num1-el").valueAsNumber;
+                let num2 = document.getElementById("num2-el").valueAsNumber;
+                document.getElementById("sum-el").innerHTML = num1 - num2;
+                document.getElementById("signs").innerHTML = "-";
+            };
+
+            function multiply() {
+                let num1 = document.getElementById("num1-el").valueAsNumber;
+                let num2 = document.getElementById("num2-el").valueAsNumber;
+                document.getElementById("sum-el").innerHTML = num1 * num2;
+                document.getElementById("signs").innerHTML = "×";
+            };
+
+            function divide() {
+                let num1 = document.getElementById("num1-el").valueAsNumber;
+                let num2 = document.getElementById("num2-el").valueAsNumber;
+                document.getElementById("sum-el").innerHTML = num1 / num2;
+                document.getElementById("signs").innerHTML = "÷";
+            };            
+        </script>
+    </body>
+</html>
